@@ -1,0 +1,33 @@
+.wd-course-navigation li {
+    color: red;
+}
+
+.wd-course-navigation {
+    width: 100%;
+    border-radius: none;
+}
+
+.wd-course-navigation li.active {
+    border-left: 2px solid black;
+    border-radius: 0;
+    background-color: inherit;
+}
+
+.wd-course-navigation li {
+    border: none;
+}
+
+ul.wd-course-navigation .list-group-item.active {
+    color: black;
+}
+
+.wd-home-top-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.wd-module-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+}

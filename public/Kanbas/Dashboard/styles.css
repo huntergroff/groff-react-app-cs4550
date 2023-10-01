@@ -1,0 +1,19 @@
+.wd-card-grid {
+    max-width: 1160px;
+    background-color: blue;
+}
+
+.wd-card-grid .card rect {
+    width: 100%;
+    height: 150px;
+}
+
+.wd-card-grid .card {
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.wd-card-grid a {
+    text-decoration: none;
+    color: black;
+}
