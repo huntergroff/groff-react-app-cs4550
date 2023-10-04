@@ -1,0 +1,81 @@
+.profile-icon-and-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.profile-icon-container {
+    border-radius: 100px;
+    border: 1px solid #aaaaaa;
+    overflow: hidden;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #aaaaaa;
+}
+
+.wd-btn-pencil {
+    margin-right: 5px;
+}
+
+.wd-profile h2 {
+    margin-top: 50px;
+}
+
+.wd-profile a {
+    text-decoration: none;
+    color: red;
+}
+
+.wd-link-icon {
+    margin-left: 5px;
+}
+
+.wd-profile-form input, .wd-profile-form textarea {
+    max-width: 500px;
+}
+
+.wd-profile-form h5 {
+    text-align: center;
+}
+
+.wd-profile-form .fa-arrow-right, .wd-profile-form .fa-x {
+    margin-top: 42px;
+}
+
+.wd-profile-form .fa-x {
+    color: red;
+}
+
+.wd-profile-form label {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wd-profile-form .form-select {
+    max-width: 300px;
+}
+
+.wd-cancel-and-save {
+    margin-top: 20px;
+    border-top: 1px solid #aaaaaa;
+    padding-top: 20px;
+}
+
+.wd-cancel-and-save button {
+    margin-left: 20px;
+}
+
+.wd-profile-header {
+    border-bottom: 1px solid #aaaaaa;
+    margin: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 800px;
+}

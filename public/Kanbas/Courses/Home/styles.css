@@ -1,0 +1,56 @@
+.wd-course-navigation li {
+    color: red;
+}
+
+.wd-course-navigation {
+    width: 100%;
+    border-radius: none;
+}
+
+.wd-course-navigation li.active {
+    border-left: 2px solid black;
+    border-radius: 0;
+    background-color: inherit;
+}
+
+.wd-course-navigation li {
+    border: none;
+}
+
+ul.wd-course-navigation .list-group-item.active {
+    color: black;
+}
+
+.wd-home-top-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.wd-module-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wd-collapse-kanbas-nav li {
+    list-style-type: none;
+}
+
+.wd-collapse-kanbas-nav a {
+    display: flex;
+    font-size: 20px;
+    text-decoration: none;
+    align-items: center;
+    color: inherit;
+}
+
+.wd-collapse-kanbas-nav {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    background: white;
+    top: 0;
+}

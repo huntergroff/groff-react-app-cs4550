@@ -1,83 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Kanbas/Courses/CourseNavigation/styles.css" rel="stylesheet" />
+    <link href="/Kanbas/KanbasNavigation/kanbas-navigation.css" rel="stylesheet" />
+    <link href="/Kanbas/Account/Profile/styles.css" rel="stylesheet">
 </head>
+
 <body>
-    <table>
-        <tbody>
-            <tr>
-                <!--Kanbas Navigation-->
-                <td valign="top">
-                    <ul>
-                        <li>
-                            <a href="#">Northeastern</a>
-                        </li>
-                        <li>
-                            <a href="/Kanbas/Account">Account</a>
-                        </li>
-                        <li>
-                            <a href="#">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/Kanbas/Courses">Courses</a>
-                        </li>
-                        <li>
-                            <a href="#">Calendar</a>
-                        </li>
-                        <li>
-                            <a href="#">Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#">History</a>
-                        </li>
-                        <li>
-                            <a href="#">Studio</a>
-                        </li>
-                        <li>
-                            <a href="#">Commons</a>
-                        </li>
-                        <li>
-                            <a href="#">Help</a>
-                        </li>
-                    </ul>
-                </td>
-                <!--Account Navigation-->
-                <td valign="top">
-                    <ul>
-                        <li>
-                            <a href="#">Notifications</a>
-                        </li>
-                        <li>
-                            <a href="/Kanbas/Account/Profile">Profile</a>
-                        </li>
-                        <li>
-                            <a href="#">Files</a>
-                        </li>
-                        <li>
-                            <a href="#">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#">ePortfolios</a>
-                        </li>
-                        <li>
-                            <a href="#">Shared Content</a>
-                        </li>
-                        <li>
-                            <a href="#">The Hub</a>
-                        </li>
-                        <li>
-                            <a href="#">Qwickly Course Tools</a>
-                        </li>
-                        <li>
-                            <a href="#">Global Announcements</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <!--Kanbas Navigation-->
+        <div class="col-auto gx-10">
+            <ul class="wd-kanbas-navigation">
+                <li>
+                    <a href="#">
+                        <div class="kanbas-navigation-box">
+                            <img src="/Kanbas/KanbasNavigation/northeastern.png">
+                        </div>
+                    </a>
+                </li>
+                <li class="active" id="account">
+                    <a href="/Kanbas/Account">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-user fa-2x fa-fw" style="color: #aaaaaa"></i>
+                            </div>
+                            <p>Account</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Kanbas/Dashboard">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-gauge fa-2x"></i>
+                            </div>
+                            <p>Dashboard</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Kanbas/Courses">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-book fa-2x"></i>
+                            </div>
+                            <p>Courses</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-calendar fa-2x"></i>
+                            </div>
+                            <p>Calendar</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-inbox fa-2x"></i>
+                            </div>
+                            <p>Inbox</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-clock fa-2x"></i>
+                            </div>
+                            <p>History</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-display fa-2x"></i>
+                            </div>
+                            <p>Studio</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-right-from-bracket fa-2x"></i>
+                            </div>
+                            <p>Commons</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="kanbas-navigation-box">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-circle-question fa-2x"></i>
+                            </div>
+                            <p>Help</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!--Account Navigation-->
+        <div class="col-auto gx-10 mt-5">
+
+            <ul class="wd-course-navigation">
+                <li>
+                    <a href="#">Notifications</a>
+                </li>
+                <li>
+                    <a href="/Kanbas/Account/Profile">Profile</a>
+                </li>
+                <li>
+                    <a href="#">Files</a>
+                </li>
+                <li>
+                    <a href="#">Settings</a>
+                </li>
+                <li>
+                    <a href="#">ePortfolios</a>
+                </li>
+                <li>
+                    <a href="#">Shared Content</a>
+                </li>
+                <li>
+                    <a href="#">The Hub</a>
+                </li>
+                <li>
+                    <a href="#">Qwickly Course Tools</a>
+                </li>
+                <li>
+                    <a href="#">Global Announcements</a>
+                </li>
+            </ul>
+            <script src="https://kit.fontawesome.com/9de7a912db.js" crossorigin="anonymous"></script>
+        </div>
+    </div>
 </body>
+
 </html>
