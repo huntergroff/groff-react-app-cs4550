@@ -1,0 +1,34 @@
+.wd-assignments-percent-total-box {
+    border: 1px solid #aaaaaa;
+    border-radius: 15px;
+    padding: 3px;
+}
+
+.wd-assignment-title {
+    font-weight: 600;
+}
+
+.wd-assignment-subtext {
+    font-size: 14px;
+    color: #555555;
+}
+
+.wd-assignment-border {
+    border-left: 4px solid green;
+}
+
+.wd-assignment-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wd-assignment-list a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.wd-assign-add-button {
+    width: 100%;
+    border-radius: 0;
+}

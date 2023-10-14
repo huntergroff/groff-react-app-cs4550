@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { BiUserCircle, BiSolidCalendar } from "react-icons/bi";
+import { BiUserCircle, BiSolidCalendar, BiSolidBook } from "react-icons/bi";
 import { AiOutlineDashboard } from "react-icons/ai";
-import { FaBook } from "react-icons/fa";
 import "./kanbas-navigation.css";
+import Northeastern from "./northeastern.png";
 
 function KanbasNavigation() {
     const links = [
@@ -16,7 +16,7 @@ function KanbasNavigation() {
         },
         {
             title: "Courses",
-            icon: <BiUserCircle size={40}/>
+            icon: <BiSolidBook size={40}/>
         },
         {
             title: "Calendar",
@@ -25,14 +25,17 @@ function KanbasNavigation() {
     ]
   const { pathname } = useLocation();
   return (
-    <div className="list-group wd-kanbas-navigation">
+    <div className="me-3 list-group wd-kanbas-navigation">
+      <Link to="/Kanbas/" className="kanbas-navigation-box">
+        <img src={Northeastern} style={{"width":"75px"}}></img>
+      </Link>
       {links.map((link, index) => (
         <Link
           key={index}
           to={`/Kanbas/${link.title}`}
           className={`${pathname.includes(link.title) && "active"}`}
         >
-          <div class="kanbas-navigation-box">
+          <div className="kanbas-navigation-box">
             {link.icon}
             <p>{link.title}</p>
           </div>

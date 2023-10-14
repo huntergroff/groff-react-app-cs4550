@@ -5,23 +5,23 @@ import "./styles.css";
 function Dashboard() {
   const courses = db.courses;
   return (
-    <div class="col wd-dashboard">
+    <div className="col mt-3 wd-dashboard">
       <h1>Dashboard</h1>
       <hr />
-      <h2>Published Courses (7)</h2>
+      <h2>Published Courses ({courses.length})</h2>
       <hr />
 
-      <div class="d-flex flex-row flex-wrap wd-card-grid">
+      <div className="d-flex flex-row flex-wrap wd-card-grid">
         {courses.map((course) => (
           <Link
             key={course._id}
             to={`/Kanbas/Courses/${course._id}`}
           >
-            <div class="card" style={{ width: 260 }}>
+            <div className="card" style={{ width: 260 }}>
             <rect style={{"backgroundColor": `${course.color}`}}></rect>
-            <div class="card-body">
-              <h5 class="card-title">{course.name}</h5>
-              <p class="card-text">Fall 2023, Section 1</p>
+            <div className="card-body">
+              <h5 className="card-title">{course.name}</h5>
+              <p className="card-text">Fall 2023, Section 1</p>
             </div>
           </div>
           </Link>

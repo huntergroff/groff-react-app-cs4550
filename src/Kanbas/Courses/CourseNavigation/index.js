@@ -1,19 +1,21 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
+import "./styles.css";
 
 function CourseNavigation() {
-  const links = ["Home", "Modules", "Assignments", "Grades"];
-//   const { courseId } = useParams();
+  const links = ["Home", "Modules", "Assignments", "Grades", "People", "Discussions", "Announcements", "Files", "Syllabus"];
+  const { courseId } = useParams();
   const { pathname } = useLocation();
   return (
-    <div className="list-group" style={{ width: 150 }}>
-      {links.map((link, index) => (
-        <Link
-          key={index}
-          to={`${link}`}
-          className={`list-group-item ${pathname.includes(link) && "active"}`}>
-          {link}
-        </Link>
-      ))}
+    <div className="list-group">
+      <ul className="wd-course-navigation">
+        {links.map((link, index) => (
+          <li key={index} className={`${pathname.includes(link) && "active"}`}>
+            <Link to={`/Kanbas/Courses/${courseId}/${link}`}>
+              {link}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
