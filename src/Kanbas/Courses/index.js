@@ -1,4 +1,3 @@
-import db from "../../Kanbas/Database";
 import { Navigate, Route, Routes, useParams, useLocation, Link } from "react-router-dom";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
@@ -8,8 +7,9 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import "./styles.css";
 import Grades from "./Grades";
+import CoursesScreen from "./CoursesScreen";
 
-function Courses() {
+function Courses({courses}) {
   const { courseId } = useParams();
   const { pathname } = useLocation();
   const path = pathname.split('/');
@@ -43,7 +43,7 @@ function Courses() {
         </div>
         <div className="col">
           <Routes>
-            <Route path="/" element={<Navigate to="Home" />} />
+            <Route path="/" element={<Navigate to="Home"/>} />
             <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
@@ -52,7 +52,6 @@ function Courses() {
               path="Assignments/:assignmentId"
               element={<AssignmentEditor />}
             />
-            <Route path="Grades" element={<h1>Grades</h1>} />
           </Routes>
         </div>
       </div>
