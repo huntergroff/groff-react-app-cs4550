@@ -5,18 +5,46 @@ import { LuGripVertical } from "react-icons/lu";
 import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import {
   addModule,
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./moduleReducer";
+import * as client from "./client";
 
 function ModuleList() {
   const { courseId } = useParams();
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
+  useEffect(() => {
+    client.findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+
+  const handleAddModule = () => {
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+  
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module._id, module);
+    dispatch(updateModule(module));
+  }
+
+
   return (
     <div>
       <div className="wd-module-top-buttons">
@@ -43,13 +71,13 @@ function ModuleList() {
 
       <div className="d-flex align-items-start justify-content-between">
         <div className="me-2 w-75">
-          <label for="module-title-box" className="form-label">Title</label>
+          <label htmlFor="module-title-box" className="form-label">Title</label>
           <input className="form-control mb-2" id="module-title-box" value={module.name}
             onChange={(e) => dispatch(setModule({
               ...module, name: e.target.value
             }))}
           />
-          <label for="module-description-box" className="form-label">Description</label>
+          <label htmlFor="module-description-box" className="form-label">Description</label>
           <textarea className="form-control" id="module-description-box" value={module.description}
             onChange={(e) => dispatch(setModule({
               ...module, description: e.target.value
@@ -57,8 +85,8 @@ function ModuleList() {
           />
         </div>
         <div>
-          <button className="btn btn-success me-2" onClick={() => dispatch(addModule(module))}>Add</button>
-          <button className="btn btn-primary" onClick={() => dispatch(updateModule(module))}>Update</button>
+          <button className="btn btn-success me-2" onClick={handleAddModule}>Add</button>
+          <button className="btn btn-primary" onClick={handleUpdateModule}>Update</button>
         </div>
       </div>
 
@@ -82,7 +110,7 @@ function ModuleList() {
                 </div>
                 <div className="wd-list-group-end-icons">
                   <button className="btn btn-warning me-2" onClick={() => dispatch(setModule(module))}>Edit</button>
-                  <button className="btn btn-danger" onClick={() => dispatch(deleteModule(module._id))}>Delete</button>
+                  <button className="btn btn-danger" onClick={() => handleDeleteModule(module._id)}>Delete</button>
                 </div>
               </li>
             </ul>

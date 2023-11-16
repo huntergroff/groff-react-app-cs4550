@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 function WorkingWithObjects() {
     const [assignment, setAssignment] = useState({
         id: 1,
-        title: "NodeJS Assignment",
+        title: "placeholder",
         description: "Create a NodeJS server with ExpressJS",
         due: "2021-10-10",
         completed: false,
         score: 0,
       });
       const URL = "http://localhost:4000/a5/assignment";
+      const fetchAssignment = async () => {
+        const response = await axios.get(`${URL}`);
+        setAssignment(response.data);
+      };
+      const updateTitle = async () => {
+        const response = await axios
+          .get(`${URL}/title/${assignment.title}`);
+        setAssignment(response.data);
+      };
+      useEffect(() => {
+        fetchAssignment();
+      }, []);
+    
+    
   return (
     <div>
       <h3>Working With Objects</h3>
+      <p>{JSON.stringify(assignment)}</p>
       <h4>Modifying Properties</h4>
       <a
         href={`${URL}/title/${assignment.title}`}
@@ -39,12 +55,6 @@ function WorkingWithObjects() {
         className="form-control mb-2 w-75"
         type="number" />
       
-      <a
-        href={`${URL}/completed/${assignment.completed}`}
-        className="btn btn-primary me-2"
-      >
-        Update Completed
-      </a>
       <label className="form-label">Completed
       <input
         onChange={(e) => setAssignment({ ...assignment,
@@ -53,6 +63,26 @@ function WorkingWithObjects() {
         className="form-checkbox mb-2 w-75"
         type="checkbox" />
         </label>
+      <a
+        href={`${URL}/completed/${assignment.completed}`}
+        className="btn btn-primary me-2"
+      >
+        Update Completed
+      </a>
+      
+
+      <br/>
+      <br/>
+
+      <button onClick={updateTitle}
+              className="w-100 btn btn-primary mb-2">
+        Update Title to: {assignment.title}
+      </button>
+      <button onClick={fetchAssignment}
+              className="w-100 btn btn-danger mb-2">
+        Fetch Assignment
+      </button>
+
 
       <h4>Retrieving Objects</h4>
       <a href="http://localhost:4000/a5/assignment"

@@ -40,7 +40,8 @@ function Dashboard({ courses, course, setCourse, addNewCourse, updateCourse, del
                 <button className="btn btn-danger"
                   onClick={(event) => {
                     event.preventDefault();
-                    deleteCourse(course._id);
+                    console.log(course._id);
+                    deleteCourse(course);
                   }}>
                   Delete
                 </button>
@@ -48,6 +49,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse, updateCourse, del
                   onClick={(event) => {
                     event.preventDefault();
                     setCourse(course);
+                    console.log(course);
                   }}>
                   Edit
                 </button>

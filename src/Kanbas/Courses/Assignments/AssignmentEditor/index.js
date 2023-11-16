@@ -18,11 +18,11 @@ function AssignmentEditor() {
     return (
         <div>
             <h2 className="mb-3">Assignment {assignment._id}</h2>
-            <label className="mb-1" for="title">Assignment Name</label>
+            <label className="mb-1" htmlFor="title">Assignment Name</label>
             <input id="title"
                 value={assignment.title}
                 className="form-control mb-2" style={{ "max-width": "600px" }} />
-            <label className="mb-1" for="date">Due Date</label>
+            <label className="mb-1" htmlFor="date">Due Date</label>
 
             <input id="date" type="date" className="form-control mb-4" style={{ "max-width": "200px" }} value={assignment.due} />
             <hr />

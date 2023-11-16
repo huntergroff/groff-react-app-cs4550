@@ -10,6 +10,18 @@ import axios from "axios";
 
 function Kanbas() {
   const URL = "http://localhost:4000/api/courses";
+  
+  const [courses, setCourses] = useState([]);
+  const [course, setCourse] = useState({
+    name: "New Course", 
+    number: "New Number",
+    startDate: "2023-01-10", 
+    endDate: "2023-05-15",
+    department: "New Department",
+    credits: 4,
+    description: "New Description",
+  });
+
   const findAllCourses = async () => {
     const response = await axios.get(URL);
     setCourses(response.data);
@@ -18,32 +30,43 @@ function Kanbas() {
     findAllCourses();
   }, []);
 
-  const [courses, setCourses] = useState([]);
-  const [course, setCourse] = useState({
-    name: "New Course", number: "New Number",
-    startDate: "2023-09-10", endDate: "2023-12-15",
-  });
-  const addNewCourse = () => {
-    setCourses([...courses,
-    {
-      ...course,
-      _id: new Date().getTime()
-    }]);
+  
+  const addNewCourse = async () => {
+    console.log(course);
+    const response = await axios.post(URL, course);
+    setCourses([
+      response.data,
+      ...courses,
+    ]);
   };
-  const deleteCourse = (courseId) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
+
+  const deleteCourse = async (course) => {
+    const response = await axios.delete(
+      `${URL}/${course._id}`
+    );
+    setCourses(courses.filter(
+      (c) => c._id !== course._id));
   };
-  const updateCourse = () => {
+
+
+  const updateCourse = async () => {
+    console.log("hello)");
+    console.log(course);
+    const response = await axios.put(
+      `${URL}/${course._id}`,
+      course
+    );
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
           return course;
-        } else {
-          return c;
         }
+        return c;
       })
     );
   };
+
+
   return (
     <Provider store={store}>
       <div className="d-flex">

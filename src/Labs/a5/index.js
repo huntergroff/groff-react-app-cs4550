@@ -11,7 +11,7 @@ function Assignment5() {
   console.log(f)
 
   return (
-    <div>
+    <div className="container">
       <h1>Assignment 5</h1>
       <div className="list-group">
         <a href="http://localhost:4000/a5/welcome"
