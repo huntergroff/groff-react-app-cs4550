@@ -9,7 +9,8 @@ import store from "./Store";
 import axios from "axios";
 
 function Kanbas() {
-  const URL = "http://localhost:4000/api/courses";
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  const URL = `${API_BASE}/courses`;
   
   const [courses, setCourses] = useState([]);
   const [course, setCourse] = useState({
@@ -23,6 +24,7 @@ function Kanbas() {
   });
 
   const findAllCourses = async () => {
+    console.log(URL);
     const response = await axios.get(URL);
     setCourses(response.data);
   };
