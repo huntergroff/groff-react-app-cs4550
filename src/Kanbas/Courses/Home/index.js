@@ -11,7 +11,7 @@ function CourseStatusButton(props) {
     )
 }
 
-function Home() {
+function Home({course}) {
     return (
         <div className="row">
             <div className="col">

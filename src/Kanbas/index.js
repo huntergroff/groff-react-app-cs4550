@@ -2,39 +2,73 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import KanbasNavigation from "./KanbasNavigation";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
-import { useState } from "react";
-import db from "./Database";
+import { useEffect, useState } from "react";
 import CoursesScreen from "./Courses/CoursesScreen";
 import { Provider } from "react-redux";
 import store from "./Store";
+import axios from "axios";
 
 function Kanbas() {
-  const [courses, setCourses] = useState(db.courses);
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  const URL = `${API_BASE}/courses`;
+  
+  const [courses, setCourses] = useState([]);
   const [course, setCourse] = useState({
-    name: "New Course", number: "New Number",
-    startDate: "2023-09-10", endDate: "2023-12-15",
+    name: "New Course", 
+    number: "New Number",
+    startDate: "2023-01-10", 
+    endDate: "2023-05-15",
+    department: "New Department",
+    credits: 4,
+    description: "New Description",
   });
-  const addNewCourse = () => {
-    setCourses([...courses,
-    {
-      ...course,
-      _id: new Date().getTime()
-    }]);
+
+  const findAllCourses = async () => {
+    console.log(URL);
+    const response = await axios.get(URL);
+    setCourses(response.data);
   };
-  const deleteCourse = (courseId) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
+  useEffect(() => {
+    findAllCourses();
+  }, []);
+
+  
+  const addNewCourse = async () => {
+    console.log(course);
+    const response = await axios.post(URL, course);
+    setCourses([
+      response.data,
+      ...courses,
+    ]);
   };
-  const updateCourse = () => {
+
+  const deleteCourse = async (course) => {
+    const response = await axios.delete(
+      `${URL}/${course._id}`
+    );
+    setCourses(courses.filter(
+      (c) => c._id !== course._id));
+  };
+
+
+  const updateCourse = async () => {
+    console.log("hello)");
+    console.log(course);
+    const response = await axios.put(
+      `${URL}/${course._id}`,
+      course
+    );
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
           return course;
-        } else {
-          return c;
         }
+        return c;
       })
     );
   };
+
+
   return (
     <Provider store={store}>
       <div className="d-flex">
